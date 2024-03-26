@@ -98,7 +98,6 @@ main {
   box-shadow: 0 3px 3px #444;
   padding: 2em 1em;
   margin-bottom: 1.5em;
-  position: relative;
 }
 @media screen and (min-width: 700px) {
   main {
@@ -135,20 +134,21 @@ h1 {
   letter-spacing: -0.03em;
   margin-bottom: 0.7em;
 }
+
 h1 span {
   position: relative;
-  z-index: 2;
+  z-index: 0;
 }
-article > div {
-  position: relative;
-}
-article > div > svg {
+
+h1 span svg {
   fill: #988dea;
-  width: 45%;
+  width: 100%;
   position: absolute;
-  top: 60px;
-  right: 150px;
+  bottom: -10px;
+  left: 0;
+  z-index: -1;
 }
+
 article p:nth-of-type(1) {
   color: #ababab;
 }
@@ -332,33 +332,71 @@ button {
   }
 }
 
-.side-buttons,
-.up {
+.social-buttons,
+.top-button {
   position: fixed;
-  z-index: 800;
+  line-height: 1;
+  z-index: 999;
   right: 5%;
-  top: 50%;
 }
-.side-buttons i,
-.up i {
-  cursor: pointer;
-  position: absolute;
-  font-size: 30px;
+.social-buttons {
+  top: 16%;
   color: #3f6bca;
-  background-color: rgba(255, 255, 255, 0.521);
+}
+.top-button {
+  bottom: 5%;
+}
+.social-buttons i,
+.top-button i {
+  display: block;
+  cursor: pointer;
+  font-size: 30px;
+  background: #ffffffa1;
+  backdrop-filter: blur(2px);
+  box-shadow: 0 10px 30px rgb(0 0 0 / 10%);
   border: 4px solid white;
   padding: 0.8rem;
   border-radius: 20px;
 }
-.side-buttons i:nth-of-type(1) {
-  top: 10px;
+.social-buttons i,
+.top-button i {
+  margin-bottom: 1rem;
 }
-.side-buttons i:nth-of-type(2) {
-  top: 80px;
-}
-.up i:nth-of-type(1) {
-  top: 150px;
+.top-button a {
+  text-decoration: none;
   color: #a02571;
+}
+@media screen and (max-width: 1199px) {
+  .social-buttons,
+  .top-button {
+    top: unset;
+    right: 10px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .social-buttons,
+  .top-button {
+    top: unset;
+    right: -10px;
+  }
+}
+@media screen and (max-width: 560px) {
+  .social-buttons,
+  .top-button {
+    top: unset;
+    right: -20px;
+  }
+  .social-buttons i,
+  .top-button i {
+    font-size: 25px;
+  }
+  .top-button {
+    bottom: 10px;
+  }
+  .social-buttons {
+    bottom: 11%;
+  }
 }
 
 /* ELEMENTI NELL' ASIDE */
